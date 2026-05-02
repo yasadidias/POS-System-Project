@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuddle Blooms POS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- 1. LOGIN SECTION -->
+    <div id="login-container" class="main-container">
+        <div class="login-box">
+            <h1>Welcome</h1>
+            <label for="username">User Name</label>
+            <input type="text" id="username" placeholder="Enter your username">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your password">
+            <a href="#">Forget Password</a>
+            <button type="button" id="loginBtn" class="login-btn">Log in</button>
+        </div>
+        <div class="image-box">
+            <img src="assets/toy.png" alt="Plush Toy">
+        </div>
+    </div>
+
+    <!-- 2. DASHBOARD SECTION -->
+    <div id="dashboard-section" class="dashboard-wrapper" style="display: none;">
+        <aside class="sidebar">
+            <div class="logo-area">
+                <i class="fa-solid fa-teddy-bear"></i>
+                <h3>Cuddle Blooms POS</h3>
+            </div>
+            <nav class="nav-menu">
+                <button class="nav-btn active" onclick="showSection('dashboard-section')"><i class="fa-solid fa-border-all"></i> Dashboard</button>
+                <button class="nav-btn" onclick="showSection('customers-section')"><i class="fa-solid fa-user-plus"></i> Customers</button>
+                <button class="nav-btn" onclick="showSection('items-section')"><i class="fa-solid fa-box"></i> Items</button>
+                <button class="nav-btn" onclick="showSection('orders-section')"><i class="fa-solid fa-cart-shopping"></i> Orders</button>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <h2>Welcome, Cashier Maya</h2>
+                <div class="bell"><i class="fa-regular fa-bell"></i></div>
+            </header>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fa-solid fa-user-check"></i>
+                    <p>Total Customers</p>
+                    <strong id="dash-total-customers">128</strong>
+                </div>
+                <div class="stat-card">
+                    <i class="fa-solid fa-cube"></i>
+                    <p>Total Items</p>
+                    <strong id="dash-total-items">456</strong>
+                </div>
+                <div class="stat-card">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <p>Today's Orders</p>
+                    <strong id="dash-total-orders">35</strong>
+                </div>
+                <div class="stat-card">
+                    <i class="fa-solid fa-sack-dollar"></i>
+                    <p>Today's Revenue</p>
+                    <strong id="dash-total-revenue">Rs. 28,500</strong>
+                </div>
+            </div>
+
+            <div class="info-sections">
+                <div class="activity-box">
+                    <h4>Recent Activity</h4>
+                    <div class="activity-list" id="recentActivityList">
+                        <p>Sold: Blue Teddy to Mrs. Perera - Rs. 3,500</p>
+                        <p>Sold: Baby Mattress to Mrs. Perera - Rs. 5,500</p>
+                        <p>New Customer: Mrs. Sanjana added</p>
+                        <p>Sold: Baby Blankets to Mrs. Silva - Rs. 2,000</p>
+                        <p>Sold: Baby Powder to Mrs. Manuli - Rs. 900</p>
+                        <p>Sold: Baby Bathtub to Mrs. Mevini - Rs. 5,500</p>
+                        <p>Sold: Baby Car seat to Mrs. Anumi - Rs. 5,500</p>
+                    </div>
+                </div>
+                <div class="top-selling-box">
+                    <h4>Top Selling Items</h4>
+                    <div class="activity-list">
+                        <p>Blue Teddy (15 Units)</p>
+                        <p>Baby Bathtub (10 Units)</p>
+                        <p>Baby Blanket (10 Units)</p>
+                        <p>Baby Car Seat (5 Units)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bunny-image-container">
+                <img src="assets/bunny.png" alt="Cute Bunny" class="bunny-image">
+            </div>
+        </main>
+    </div>
+
+    <!-- 3. CUSTOMERS SECTION -->
+    <div id="customers-section" class="dashboard-wrapper" style="display: none;">
+        <aside class="sidebar">
+            <div class="logo-area">
+                <i class="fa-solid fa-teddy-bear"></i>
+                <h3>Cuddle Blooms POS</h3>
+            </div>
+            <nav class="nav-menu">
+                <button class="nav-btn" onclick="showSection('dashboard-section')"><i class="fa-solid fa-border-all"></i> Dashboard</button>
+                <button class="nav-btn active" onclick="showSection('customers-section')"><i class="fa-solid fa-user-plus"></i> Customers</button>
+                <button class="nav-btn" onclick="showSection('items-section')"><i class="fa-solid fa-box"></i> Items</button>
+                <button class="nav-btn" onclick="showSection('orders-section')"><i class="fa-solid fa-cart-shopping"></i> Orders</button>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <h2>Manage Customers</h2>
+                <div class="bell"><i class="fa-regular fa-bell"></i></div>
+            </header>
+
+            <div class="customers-container">
+                <div class="customer-detail-panel">
+                    <div class="customer-header">
+                        <h3>Customer Details</h3>
+                    </div>
+                    
+                    <div class="customer-form">
+                        <div class="form-group">
+                            <label>Customer ID</label>
+                            <input type="text" id="customerId" placeholder="C001">
+                        </div>
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" id="customerName" placeholder="Enter customer name">
+                        </div>
+                        <div class="form-group">
+                            <label>Contact Number</label>
+                            <input type="tel" id="customerContact" placeholder="071-9987123">
+                        </div>
+                        <div class="form-group">
+                            <label>Address</label>
+                            <input type="text" id="customerAddress" placeholder="Enter address">
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn btn-register" onclick="registerCustomer()"><i class="fa-solid fa-plus"></i> Register</button>
+                            <button class="btn btn-update" onclick="updateCustomer()"><i class="fa-solid fa-pen"></i> Update</button>
+                            <button class="btn btn-delete" onclick="deleteCustomer()"><i class="fa-solid fa-trash"></i> Delete</button>
+                            <button class="btn btn-clear" onclick="clearCustomerForm()"><i class="fa-solid fa-xmark"></i> Clear</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="customers-list-panel">
+                    <div class="search-bar">
+                        <input type="text" id="searchInput" placeholder="Search Customer (ID/Name)" onkeyup="searchCustomers()">
+                        <button onclick="searchCustomers()"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+                    <div class="table-wrapper">
+                        <table class="customers-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Contact</th>
+                                    <th>Address</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="customersTableBody"></tbody>
+                        </table>
+                    </div>
+                    <div class="pagination">
+                        <button onclick="previousCustomerPage()">Previous</button>
+                        <span id="pageInfo">1 / 1</span>
+                        <button onclick="nextCustomerPage()">Next</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- 4. ITEMS SECTION -->
+    <div id="items-section" class="dashboard-wrapper" style="display: none;">
+        <aside class="sidebar">
+            <div class="logo-area">
+                <i class="fa-solid fa-teddy-bear"></i>
+                <h3>Cuddle Blooms POS</h3>
+            </div>
+            <nav class="nav-menu">
+                <button class="nav-btn" onclick="showSection('dashboard-section')"><i class="fa-solid fa-border-all"></i> Dashboard</button>
+                <button class="nav-btn" onclick="showSection('customers-section')"><i class="fa-solid fa-user-plus"></i> Customers</button>
+                <button class="nav-btn active" onclick="showSection('items-section')"><i class="fa-solid fa-box"></i> Items</button>
+                <button class="nav-btn" onclick="showSection('orders-section')"><i class="fa-solid fa-cart-shopping"></i> Orders</button>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <h2>Manage Items</h2>
+                <div class="bell"><i class="fa-regular fa-bell"></i></div>
+            </header>
+
+            <div class="items-container">
+                <div class="item-detail-panel">
+                    <div class="item-header">
+                        <h3>Item Details</h3>
+                    </div>
+                    <div class="item-form">
+                        <div class="form-group">
+                            <label>Item Code</label>
+                            <input type="text" id="itemCode" placeholder="ITM001">
+                        </div>
+                        <div class="form-group">
+                            <label>Item Name</label>
+                            <input type="text" id="itemName" placeholder="Enter item name">
+                        </div>
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select id="itemCategory">
+                                <option value="">Select Category</option>
+                                <option value="Plush">Plush</option>
+                                <option value="Bedding">Bedding</option>
+                                <option value="Clothing">Clothing</option>
+                                <option value="Accessories">Accessories</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Buying Price</label>
+                            <input type="number" id="itemBuyingPrice" placeholder="1800.00" step="0.01">
+                        </div>
+                        <div class="form-group">
+                            <label>Selling Price</label>
+                            <input type="number" id="itemSellingPrice" placeholder="2500.00" step="0.01">
+                        </div>
+                        <div class="form-group">
+                            <label>Stock QTY</label>
+                            <input type="number" id="itemStockQty" placeholder="50">
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn btn-register" onclick="addItem()"><i class="fa-solid fa-plus"></i> Add Item</button>
+                            <button class="btn btn-update" onclick="updateItem()"><i class="fa-solid fa-pen"></i> Update Item</button>
+                            <button class="btn btn-delete" onclick="deleteItem()"><i class="fa-solid fa-trash"></i> Delete Item</button>
+                            <button class="btn btn-clear" onclick="clearItemForm()"><i class="fa-solid fa-xmark"></i> Clear</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="items-list-panel">
+                    <div class="search-bar">
+                        <input type="text" id="searchItemInput" placeholder="Search Item" onkeyup="searchItems()">
+                        <button onclick="searchItems()"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+                    <div class="table-wrapper">
+                        <table class="items-table">
+                            <thead>
+                                <tr>
+                                    <th>Code</th>
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
+                                    <th>Qty</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="itemsTableBody"></tbody>
+                        </table>
+                    </div>
+                    <div class="pagination">
+                        <button onclick="previousItemPage()">Previous</button>
+                        <span id="itemsPageInfo">1 / 1</span>
+                        <button onclick="nextItemPage()">Next</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image Gallery Section -->
+   <div class="item-image-gallery">
+    <div class="gallery-card">
+        <img src="assets/item1.jpg" alt="Item 1">
+    </div>
+    <div class="gallery-card">
+        <img src="assets/item2.jpg" alt="Item 2">
+    </div>
+    <div class="gallery-card">
+        <img src="assets/item3.jpg" alt="Item 3">
+    </div>
+</div>
+
+
+             
+        </main>
+
+        
+    </div>
+
+   
+
+
+    <!-- 5. ORDERS SECTION  -->
+    <div id="orders-section" class="dashboard-wrapper" style="display: none;">
+        <aside class="sidebar">
+            <div class="logo-area">
+                <i class="fa-solid fa-teddy-bear"></i>
+                <h3>Cuddle Blooms POS</h3>
+            </div>
+            <nav class="nav-menu">
+                <button class="nav-btn" onclick="showSection('dashboard-section')"><i class="fa-solid fa-border-all"></i> Dashboard</button>
+                <button class="nav-btn" onclick="showSection('customers-section')"><i class="fa-solid fa-user-plus"></i> Customers</button>
+                <button class="nav-btn" onclick="showSection('items-section')"><i class="fa-solid fa-box"></i> Items</button>
+                <button class="nav-btn active" onclick="showSection('orders-section')"><i class="fa-solid fa-cart-shopping"></i> Orders</button>
+            </nav>
+        </aside>
+
+        <main class="main-content" style="padding: 30px; overflow-y: auto;">
+            <header class="top-bar" style="margin-bottom: 20px;">
+                <h2>Manage Orders</h2>
+                <div class="bell"><i class="fa-regular fa-bell"></i></div>
+            </header>
+
+            <div class="orders-layout" style="display: flex; gap: 20px; justify-content: flex-start; flex-wrap: wrap;">
+                
+                <!-- Panel 1: Order Details -->
+                <div class="order-card" style="background-color: #ffafaf; border-radius: 25px; padding: 20px; flex: 1; min-width: 300px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+                    <h3 style="margin-bottom: 15px; font-style: italic; color: #333;">Order Details</h3>
+                    <div style="margin-bottom: 10px;">
+                        <label style="display: block; font-size: 12px; font-weight: bold; margin-bottom: 3px;">Order ID</label>
+                        <input type="text" id="orderIdDisplay" value="O001" readonly style="width: 100%; padding: 8px; border: none; border-radius: 8px; outline: none;">
+                    </div>
+                    
+                    <div style="font-weight: bold; margin: 15px 0 5px 0; font-size: 14px;">Customer Details</div>
+                    <div style="position: relative; margin-bottom: 10px;">
+                        <input type="text" id="searchCustId" placeholder="Search Customer ID..." style="width: 100%; padding: 10px 35px 10px 15px; border: none; border-radius: 20px; outline: none;">
+                        <i class="fas fa-search" style="position: absolute; right: 15px; top: 12px; color: #C71585;"></i>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <div><label style="display: block; font-size: 12px; font-weight: bold; margin-bottom: 3px;">Name</label><input type="text" id="orderCustName" readonly style="width: 100%; padding: 8px; border: none; border-radius: 8px; outline: none;"></div>
+                        <div><label style="display: block; font-size: 12px; font-weight: bold; margin-bottom: 3px;">Contact</label><input type="text" id="orderCustContact" readonly style="width: 100%; padding: 8px; border: none; border-radius: 8px; outline: none;"></div>
+                    </div>
+
+                    <div style="font-weight: bold; margin: 15px 0 5px 0; font-size: 14px;">Item Details</div>
+                    <div style="position: relative; margin-bottom: 10px;">
+                        <input type="text" id="searchItemCode" placeholder="Search Item Code..." style="width: 100%; padding: 10px 35px 10px 15px; border: none; border-radius: 20px; outline: none;">
+                        <i class="fas fa-search" style="position: absolute; right: 15px; top: 12px; color: #C71585;"></i>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <div><label style="display: block; font-size: 12px; font-weight: bold; margin-bottom: 3px;">Item Name</label><input type="text" id="orderItemName" readonly style="width: 100%; padding: 8px; border: none; border-radius: 8px; outline: none;"></div>
+                        <div><label style="display: block; font-size: 12px; font-weight: bold; margin-bottom: 3px;">Price</label><input type="text" id="orderItemPrice" readonly style="width: 100%; padding: 8px; border: none; border-radius: 8px; outline: none;"></div>
+                    </div>
+
+                    <div style="display: flex; gap: 15px; margin-top: 20px; align-items: center;">
+                        <div style="display: flex; background: white; border-radius: 8px; overflow: hidden;">
+                            <button id="qtyMinus" style="background: #FF4DA6; color: white; border: none; padding: 8px 15px; cursor: pointer;">-</button>
+                            <input type="number" id="orderItemQty" value="1" style="width: 50px; border: none; text-align: center; font-weight: bold;">
+                            <button id="qtyPlus" style="background: #FF4DA6; color: white; border: none; padding: 8px 15px; cursor: pointer;">+</button>
+                        </div>
+                        <button id="btnAddToCart" style="background: #C71585; color: white; border: none; padding: 10px; border-radius: 10px; flex: 1; cursor: pointer; font-weight: bold;"><i class="fas fa-cart-plus"></i> Add</button>
+                    </div>
+                </div>
+
+                <!-- Panel 2: Cart -->
+                <div class="order-card" style="background-color: #ffeef2; border-radius: 25px; padding: 20px; flex: 1; min-width: 300px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+                    <div style="position: relative; margin-bottom: 15px;">
+                        <input type="text" placeholder="Search in Cart..." style="width: 100%; padding: 10px 35px 10px 15px; border: none; border-radius: 20px; outline: none; background-color: #f0cce0;">
+                        <i class="fas fa-search" style="position: absolute; right: 15px; top: 12px; color: #C71585;"></i>
+                    </div>
+                    <div style="overflow-x: auto;">
+                        <table style="width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden;">
+                            <thead>
+                                <tr>
+                                    <th style="background: #FF69B4; color: white; padding: 10px; font-size: 13px; text-align: left;">Item</th>
+                                    <th style="background: #FF69B4; color: white; padding: 10px; font-size: 13px; text-align: center;">Price</th>
+                                    <th style="background: #FF69B4; color: white; padding: 10px; font-size: 13px; text-align: center;">Qty</th>
+                                    <th style="background: #FF69B4; color: white; padding: 10px; font-size: 13px; text-align: right;">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cartTableBody">
+                                <!-- Items will appear here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="margin-top: 25px; border-top: 2px dashed #ffafaf; padding-top: 15px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <p style="font-weight: bold; font-size: 18px;">Total Amount:</p>
+                          <p id="netTotal" style="color: #C71585; font-weight: bold; font-size: 18px;">LKR 0.00</p>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <p style="font-weight: bold; font-size: 14px; color: #666;">Discount:</p>
+                            <p style="font-weight: bold; font-size: 14px; color: #666;">0%</p>
+                        </div>
+                    </div>
+                    <button id="btnPlaceOrder" style="width: 100%; padding: 15px; background: #df88b6; border: none; border-radius: 25px; color: white; font-weight: bold; font-size: 18px; margin-top: 20px; cursor: pointer;">Place Order</button>
+                </div>
+
+                <!-- Panel 3: History -->
+                <div class="order-card" style="background-color: #df98d2; border-radius: 25px; padding: 20px; flex: 1; min-width: 300px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <h3 style="font-style: italic; margin: 0; color: #333;">Order History</h3>
+                        <div style="display: flex; gap: 5px;">
+                            <button style="padding: 5px 10px; border: none; border-radius: 5px; font-size: 11px; cursor: pointer; background: #FF99CC; font-weight: bold;">Update</button>
+                            <button style="padding: 5px 10px; border: none; border-radius: 5px; font-size: 11px; cursor: pointer; background: #FF6B6B; color: white; font-weight: bold;">Delete</button>
+                        </div>
+                    </div>
+                    <div style="overflow-x: auto;">
+                        <table style="width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden;">
+                            <thead>
+                                <tr>
+                                    <th style="background: #FF69B4; color: white; padding: 10px; font-size: 13px; text-align: left;">Order ID</th>
+                                    <th style="background: #FF69B4; color: white; padding: 10px; font-size: 13px; text-align: center;">Customer</th>
+                                    <th style="background: #FF69B4; color: white; padding: 10px; font-size: 13px; text-align: center;">Date</th>
+                                    <th style="background: #FF69B4; color: white; padding: 10px; font-size: 13px; text-align: right;">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody id="allOrdersTableBody">
+                                <!-- History will appear here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="models/db.js"></script>
+    <script src="models/Customer.js"></script>
+    <script src="models/Item.js"></script>
+    <script src="models/Order.js"></script>
+    <script src="models/OrderItem.js"></script>
+    
+    <script src="views/CustomerView.js"></script>
+    <script src="views/ItemView.js"></script>
+    <script src="views/OrderView.js"></script>
+    <script src="views/DashboardView.js"></script>
+    <script src="views/LoginView.js"></script>
+    
+    <script src="controllers/CustomerController.js"></script>
+    <script src="controllers/ItemController.js"></script>
+    <script src="controllers/OrderController.js"></script>
+    <script src="controllers/DashboardController.js"></script>
+    <script src="controllers/LoginController.js"></script>
+    
+    <script src="app.js"></script>
+</body>
+</html>
