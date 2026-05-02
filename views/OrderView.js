@@ -1,6 +1,4 @@
-/**
- * views/OrderView.js
- */
+
 
 const OrderView = {
     renderCart: function(cartItems) {

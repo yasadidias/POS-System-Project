@@ -1,6 +1,4 @@
-/**
- * controllers/CustomerController.js
- */
+
 
 const CustomerController = {
     currentPage: 1,

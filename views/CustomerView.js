@@ -1,9 +1,7 @@
-/**
- * views/CustomerView.js
- */
+
 
 const CustomerView = {
-    // Render the table with paginated data
+    
     renderTable: function(customersList, currentPage, itemsPerPage) {
         const tbody = document.getElementById('customersTableBody');
         if (!tbody) return;

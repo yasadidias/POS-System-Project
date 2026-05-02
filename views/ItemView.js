@@ -1,6 +1,4 @@
-/**
- * views/ItemView.js
- */
+
 
 const ItemView = {
     renderTable: function(itemsList, currentPage, itemsPerPage) {

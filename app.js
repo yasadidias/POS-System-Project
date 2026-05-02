@@ -1,19 +1,15 @@
-/**
- * app.js
- * Main entry point for the application.
- * Initializes controllers and sets up global event listeners.
- */
+
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log("System Initializing...");
 
-    // 1. Initialize Dashboard (which handles stats)
+    
     DashboardController.init();
 
-    // 2. Global Navigation Event Listeners
+   
     setupNavigationListeners();
 
-    // 3. Login Event Listener
+    
     const loginBtn = document.getElementById('loginBtn');
     if (loginBtn) {
         loginBtn.addEventListener('click', (e) => {
@@ -22,13 +18,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. Customer Section Listeners
+   
     setupCustomerListeners();
 
-    // 5. Item Section Listeners
+    
     setupItemListeners();
 
-    // 6. Order Section Listeners
+   
     setupOrderListeners();
 });
 
@@ -36,7 +32,7 @@ function setupNavigationListeners() {
     const navButtons = document.querySelectorAll('.nav-btn');
     navButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-            // Find which section this button points to
+         
             const btnText = btn.innerText.toLowerCase().trim();
             let sectionId = '';
             
@@ -53,7 +49,7 @@ function setupNavigationListeners() {
 }
 
 function setupCustomerListeners() {
-    // Search
+    
     const searchInput = document.getElementById('searchInput');
     if (searchInput) {
         searchInput.addEventListener('keyup', (e) => {
@@ -61,7 +57,7 @@ function setupCustomerListeners() {
         });
     }
 
-    // Table Actions (Edit/Delete) - using delegation
+    
     const tbody = document.getElementById('customersTableBody');
     if (tbody) {
         tbody.addEventListener('click', (e) => {
@@ -80,7 +76,7 @@ function setupCustomerListeners() {
 }
 
 function setupItemListeners() {
-    // Search
+    
     const searchInput = document.getElementById('searchItemInput');
     if (searchInput) {
         searchInput.addEventListener('keyup', (e) => {
@@ -88,7 +84,7 @@ function setupItemListeners() {
         });
     }
 
-    // Table Actions
+    
     const tbody = document.getElementById('itemsTableBody');
     if (tbody) {
         tbody.addEventListener('click', (e) => {
@@ -107,7 +103,7 @@ function setupItemListeners() {
 }
 
 function setupOrderListeners() {
-    // Customer Search
+    
     const searchCust = document.getElementById('searchCustId');
     if (searchCust) {
         searchCust.addEventListener('input', (e) => {
@@ -115,7 +111,7 @@ function setupOrderListeners() {
         });
     }
 
-    // Item Search
+    
     const searchItem = document.getElementById('searchItemCode');
     if (searchItem) {
         searchItem.addEventListener('input', (e) => {
@@ -123,7 +119,7 @@ function setupOrderListeners() {
         });
     }
 
-    // Qty adjustments
+    
     const qtyInput = document.getElementById('orderItemQty');
     const qtyPlus = document.getElementById('qtyPlus');
     const qtyMinus = document.getElementById('qtyMinus');
@@ -139,7 +135,7 @@ function setupOrderListeners() {
         };
     }
 
-    // Cart Actions (Delete)
+    
     const cartBody = document.getElementById('cartTableBody');
     if (cartBody) {
         cartBody.addEventListener('click', (e) => {
@@ -151,7 +147,7 @@ function setupOrderListeners() {
         });
     }
 
-    // Buttons
+   
     const btnAddToCart = document.getElementById('btnAddToCart');
     if (btnAddToCart) {
         btnAddToCart.onclick = () => OrderController.addToCart();
@@ -163,7 +159,7 @@ function setupOrderListeners() {
     }
 }
 
-// Global scope functions for HTML onclick attributes if any are left
+
 window.registerCustomer = () => CustomerController.register();
 window.updateCustomer = () => CustomerController.update();
 window.clearCustomerForm = () => CustomerView.clearForm();

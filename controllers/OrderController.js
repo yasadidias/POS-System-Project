@@ -1,6 +1,4 @@
-/**
- * controllers/OrderController.js
- */
+
 
 const OrderController = {
     selectedCustomer: null,
@@ -104,7 +102,7 @@ const OrderController = {
             return;
         }
 
-        // 1. Stock Update
+       
         cartItems.forEach(cartItem => {
             const originalItem = items.find(i => i.code === cartItem.code);
             if (originalItem) {
@@ -112,7 +110,7 @@ const OrderController = {
             }
         });
 
-        // 2. Add to History
+       
         const newOrder = {
             orderId: orderId,
             customerName: custName,
@@ -122,12 +120,12 @@ const OrderController = {
 
         allOrders.push(newOrder);
         
-        // 3. UI Update
+   
         OrderView.renderHistory(allOrders);
         DashboardController.updateStats();
         alert(`Success: Order ${orderId} placed.`);
 
-        cartItems.length = 0; // Clear the array
+        cartItems.length = 0; 
         OrderView.clearAfterOrder();
         this.generateNextOrderId();
     }

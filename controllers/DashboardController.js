@@ -1,6 +1,3 @@
-/**
- * controllers/DashboardController.js
- */
 
 const DashboardController = {
     init: function() {

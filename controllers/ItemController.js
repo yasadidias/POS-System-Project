@@ -1,6 +1,4 @@
-/**
- * controllers/ItemController.js
- */
+
 
 const ItemController = {
     currentPage: 1,

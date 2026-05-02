@@ -1,6 +1,4 @@
-/**
- * controllers/LoginController.js
- */
+
 
 const LoginController = {
     handleLogin: function() {

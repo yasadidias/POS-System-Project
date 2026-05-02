@@ -1,6 +1,4 @@
-/**
- * views/LoginView.js
- */
+
 
 const LoginView = {
     getCredentials: function() {

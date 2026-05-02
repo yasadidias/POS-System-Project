@@ -1,6 +1,4 @@
-/**
- * views/DashboardView.js
- */
+
 
 const DashboardView = {
     updateCounts: function(customerCount, itemCount, orderCount, revenue) {
@@ -29,7 +27,7 @@ const DashboardView = {
             target.style.display = 'flex';
         }
 
-        // Update active state in sidebar
+        
         document.querySelectorAll('.nav-btn').forEach(btn => {
             btn.classList.remove('active');
             let btnText = btn.innerText.toLowerCase().trim();

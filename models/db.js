@@ -1,7 +1,5 @@
-/**
- * models/db.js
- * Central data store for the application state.
- */
+
+ 
 
 let customers = [
     { id: 'C001', name: 'Nimal Perera', contact: '0712345678', address: 'Colombo' },
